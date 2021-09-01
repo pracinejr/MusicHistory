@@ -64,11 +64,43 @@
 --JOIN Genre g ON g.Id = a.GenreId
 --WHERE g.id = 1;
 
-SELECT ar.ArtistName
-FROM Artist ar
-	JOIN Album a ON  ar.Id = a.ArtistId
-	JOIN Genre g on g.Id = a.GenreId
-WHERE g.Id = 2
-	OR g.Id = 4;
+--SELECT ar.ArtistName
+--FROM Artist ar
+--	JOIN Album a ON  ar.Id = a.ArtistId
+--	JOIN Genre g on g.Id = a.GenreId
+--WHERE g.Id = 2
+--	OR g.Id = 4;
 
+--SELECT a.Title, a.Id
+--FROM Album a
+--	LEFT JOIN Song s ON a.Id = s.AlbumId
+--WHERE s.AlbumId IS NULL;
 
+--SELECT * FROM Song;
+
+--INSERT INTO Artist 
+--(ArtistName, YearEstablished) VALUES ('Dave Matthews Band', 1991);
+
+--SELECT * FROM Artist;
+
+--INSERT INTO Album (Title, ReleaseDate, AlbumLength, Label, ArtistId, GenreId) VALUES
+--('Crash', '1996', 4131, 'RCA', 29, 2);
+
+--SELECT * FROM Album;
+
+--INSERT INTO Song (Title, SongLength, ReleaseDate, GenreId, ArtistId, AlbumId)
+--VALUES ('Drive in, Drive Out', 355, '4/30/1996', 2, 29, 23);
+
+--SELECT * FROM Song
+
+--SELECT s.Title as 'Song Title', al.Title as 'Album Title', a.ArtistName as Artist
+--FROM Song s 
+--	JOIN Album al on s.AlbumId = al.Id
+--	JOIN Artist a on a.Id = al.ArtistId
+--WHERE s.Id = 22;
+
+--SELECT * FROM Song;
+
+SELECT Song, COUNT(*)
+FROM Album
+GROUP BY Album;
