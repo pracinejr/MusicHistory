@@ -99,8 +99,15 @@
 --	JOIN Artist a on a.Id = al.ArtistId
 --WHERE s.Id = 22;
 
---SELECT * FROM Song;
+SELECT * FROM Song;
 
-SELECT Song, COUNT(*)
-FROM Album
-GROUP BY Album;
+SELECT a.Title as 'Album Title', COUNT(*) as 'Number Of Songs'   
+FROM Song s
+	LEFT JOIN Album a ON s.AlbumId = a.Id
+GROUP BY s.AlbumId, a.Title;
+
+
+SELECT ar.ArtistName as Artist, COUNT(*) as 'Number of Songs'
+FROM Song s
+	LEFT JOIN Artist ar ON s.ArtistId = ar.Id
+GROUP BY s.ArtistId, ar.ArtistName
